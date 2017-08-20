@@ -91,6 +91,8 @@ final class CPDatabase extends \PDO {
 		}
 	}
 
+	public function handlePuffleStatChange() { return; } // Fixes PuffleFood crashing the server -- Zaseth
+	
 	public function makeMarriage($strPlayer, $strSpouse) {
 		$strQuery = "UPDATE `users` SET `Spouse` = :Player WHERE Username = :Spouse";
 		$objStatement = $this->prepare($strQuery);
