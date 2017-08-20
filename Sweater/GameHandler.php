@@ -177,7 +177,7 @@ trait GameHandler {
 		if($intBuddies >= 100) return $objClient->sendError(901);
 		$arrBuddies = $this->objDatabase->getBuddies($intPlayer);
 		if(!empty($arrBuddies)){
-			if(in_array($arrBuddies, $objClient->getPlayer())) return;
+			if(in_array($objClient->getPlayer(), $arrBuddies)) return; // Fixes PHP Warning:  in_array() expects parameter 2 to be array. -- Zaseth
 		}
 		$arrBuddies[] = $objClient->intPlayer;
 		$this->objDatabase->setBuddies($intPlayer, $arrBuddies);
