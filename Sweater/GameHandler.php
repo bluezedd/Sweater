@@ -646,7 +646,7 @@ trait GameHandler {
 			$arrMail = $this->objDatabase->getPostcards($intPlayer);
 			$arrMail[$arrPostcard['Unique']] = $arrPostcard;
 			unset($arrPostcard);
-			$this->objDatabase->setPostcards($arrMail);
+			$this->objDatabase->setPostcards($intPlayer, $arrMail); // Makes postcards work and fixes server crash -- Zaseth
 			if($this->getOnlineStatus($intPlayer)){
 				$this->arrClientsByID[$intPlayer]->sendXt('mr', -1, $strPostcard);
 			}
