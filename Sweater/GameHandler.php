@@ -149,6 +149,11 @@ trait GameHandler {
 		$intRoom = $objClient->getExtRoom();
 		$this->objRoomManager->sendXt($intRoom, ['at', $objClient->getIntRoom(), $objClient->getPlayer()]);
 	}
+	// Forgot handleRemoveToy??? Missing standard handler for handleRemoveToy (t#rt)! -- Zaseth
+	function handleRemoveToy(Array $arrData, Client $objClient){
+		$intRoom = $objClient->getExtRoom();
+		$this->objRoomManager->sendXt($intRoom, ['rt', $objClient->getIntRoom(), $objClient->getPlayer()]);
+	}
 	
 	function handleAdoptPuffle(Array $arrData, Client $objClient){
 		$intPuffle = $arrData[4];
